@@ -1,8 +1,6 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
-
-import { routes } from './app.routes';
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
+import { FormsModule } from '@angular/forms'; // ✅ Import
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)]
+  providers: [importProvidersFrom(FormsModule)] // ✅ Add FormsModule here too
 };
